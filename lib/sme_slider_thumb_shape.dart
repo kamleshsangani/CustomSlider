@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class PolygonSliderThumb extends SliderComponentShape {
+import 'constants.dart';
+
+class SmeSliderThumbShape extends SliderComponentShape {
   final double thumbRadius;
   final double sliderValue;
 
-  const PolygonSliderThumb({
+  const SmeSliderThumbShape({
     required this.thumbRadius,
     required this.sliderValue,
   });
@@ -36,9 +38,16 @@ class PolygonSliderThumb extends SliderComponentShape {
     double outerPolygonRadius = thumbRadius * 1.4;
     double angle = (math.pi * 2) / sides;
 
+    const double evaluatedElevation = 10;
+    double radius = 7;
+    final Path path = Path()
+      ..addArc(Rect.fromCenter(center: center, width: 2 * radius, height: 2 * radius), 0, math.pi * 2);
+    canvas.drawShadow(path, Colors.black, evaluatedElevation, true);
+
     final outerPathColor = Paint()
-      ..color = Colors.pink.shade800
-      ..style = PaintingStyle.fill;
+      ..color = KCoolBordercolor
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 16;
 
     var outerPath = Path();
 
@@ -60,6 +69,12 @@ class PolygonSliderThumb extends SliderComponentShape {
 
     outerPath.close();
     canvas.drawPath(outerPath, outerPathColor);
+
+    /*const double evaluatedElevation = 10;
+    final shadowPaint = Paint()
+      ..color = Colors.grey.withOpacity(0.5)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, evaluatedElevation);
+    canvas.drawPath(outerPath,shadowPaint);*/
 
     final innerPathColor = Paint()
       ..color = sliderTheme.thumbColor ?? Colors.black
@@ -109,6 +124,6 @@ class PolygonSliderThumb extends SliderComponentShape {
     );
 
     tp.paint(canvas, textCenter);*/
-
+//https://stackoverflow.com/questions/68659182/painting-with-path-flutter
   }
 }

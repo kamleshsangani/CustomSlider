@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text("Flutter Custom Slider"),
       ),
-      body: CustomSlider(),
+      body: const CustomSlider(),
     );
   }
 }

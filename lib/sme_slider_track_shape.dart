@@ -1,28 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomTrackShape extends RoundedRectSliderTrackShape {
-  @override
-  Rect getPreferredRect({
-    required RenderBox parentBox,
-    Offset offset = Offset.zero,
-    required SliderThemeData sliderTheme,
-    bool isEnabled = false,
-    bool isDiscrete = false,
-  }) {
-    final double trackHeight = sliderTheme.trackHeight!;
-    final double trackLeft = offset.dx;
-    final double trackTop = offset.dy + (parentBox.size.height - trackHeight) / 2;
-    final double trackWidth = parentBox.size.width;
-    return Rect.fromLTWH(trackLeft, trackTop, trackWidth, trackHeight);
-  }
-}
 
-class GradientRectSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
-  //https://www.youtube.com/watch?v=Wl4F5V6BoJw
-  /// Create a slider track that draws two rectangles with rounded outer edges.
+class SmeSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
   final LinearGradient gradient;
   final bool darkenInactive;
-  const GradientRectSliderTrackShape({ this.gradient: const LinearGradient(colors: [Colors.lightBlue, Colors.blue]), this.darkenInactive: true});
+  const SmeSliderTrackShape({ this.gradient: const LinearGradient(colors: [Colors.lightBlue, Colors.blue]), this.darkenInactive: true});
 
   @override
   void paint(
