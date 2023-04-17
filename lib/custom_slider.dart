@@ -1,7 +1,8 @@
+import 'package:custom_slider/sme_slider_value_indicator_shape2.dart';
 import 'package:flutter/material.dart';
 import 'sme_slider_thumb_shape.dart';
 import 'sme_slider_track_shape.dart';
-import 'sme_slider_value_indicator_shape.dart';
+//import 'sme_slider_value_indicator_shape.dart';
 import 'constants.dart';
 
 //https://levelup.gitconnected.com/custom-spinner-tooltip-flutter-e3576d531488
@@ -39,13 +40,14 @@ class _CustomSliderState extends State<CustomSlider>
         ),
         trackShape: SmeSliderTrackShape(gradient: gradient, darkenInactive: true),
         //valueIndicatorShape: SmeSliderValueIndicatorShape(sliderValue: _value),
+        valueIndicatorShape: const SmeSliderValueIndicatorShape(),
         showValueIndicator: ShowValueIndicator.always,
         //thumbShape: RoundSliderThumbShape(elevation: 10),
         //overlayShape: RoundSliderOverlayShape(overlayRadius: 2),
         //overlayColor: Colors.red,
         inactiveTrackColor: Colors.grey.shade200,
         activeTrackColor: kCoolPurple,
-        valueIndicatorColor: Color(0xff0385BF), //kCoolPurple,
+        //valueIndicatorColor: Color(0xff0385BF), //kCoolPurple,
         thumbColor: Colors.white, //Color(0xff0385BF), //kCoolPurple,
         inactiveTickMarkColor: Colors.grey.shade200, //Color(0xff13B3E6),
         activeTickMarkColor: Color(0xff13B3E6), //Colors.grey.shade400,
