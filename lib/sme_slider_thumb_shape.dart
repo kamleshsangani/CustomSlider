@@ -45,7 +45,7 @@ class SmeSliderThumbShape extends SliderComponentShape {
     canvas.drawShadow(path, Colors.black, evaluatedElevation, true);
 
     final outerPathColor = Paint()
-      ..color = kCoolBordercolor
+      ..color = kCoolBorderColor
       ..style = PaintingStyle.fill
       ..strokeWidth = 16;
 
